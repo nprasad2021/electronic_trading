@@ -5,20 +5,20 @@ def write_to_exchange(exchange, obj):
     json.dump(obj, exchange)
     exchange.write("\n")
 
-def trade(exchange_response, team_name):
+def trade(exchange_response, team_name, order_id):
 
-    if exchange_response['type'] == 'book' and exchange_response['symbol'] == 'bond':
+    if exchange_response['type'] == 'book' and exchange_response['symbol'] == 'BOND':
         max_buy_price = interpreter['buy'][0][0]
         min_sell_price = interpreter['sell'][0][0]
 
-        request = {"type": "add", "order_id": N, "symbol": "SYM", "dir": "BUY", "price": N, "size": N}
-    	write_to_exchange(exchange, {"type": "hello", "team": team_name.upper()})
+        buy_request = {"type": "add", "order_id": order_id, "symbol": "BOND", "dir": "BUY", "price": max_buy_price, "size": 5}
+        sell_request = 
+    	write_to_exchange(exchange, request)
 
 
 
 
-def main(response_exchange, team_name):
-
-	trade(response_to_exchange, team_name)
+def main(response_exchange, team_name, order_id):
+	trade(response_to_exchange, team_name, order_id)
 
 
