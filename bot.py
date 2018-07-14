@@ -11,9 +11,10 @@ import sys
 import socket
 import json
 
+
+### TRADING STRATEGIES
 import penny
 import simple_bond
-
 
 # ~~~~~============== CONFIGURATION  ==============~~~~~
 # replace REPLACEME with your team name!
@@ -26,7 +27,7 @@ test_mode = True
 # 0 is prod-like
 # 1 is slower
 # 2 is empty
-test_exchange_index=2
+test_exchange_index=1
 prod_exchange_hostname="production"
 
 port=25000 + (test_exchange_index if test_mode else 0)
@@ -47,19 +48,12 @@ def read_from_exchange(exchange):
 
 
 # ~~~~~============== MAIN LOOP ==============~~~~~
-
-def interpret_exchange(json_file):
     
 def interpret_exchange(exchange):
     interpreter = response_from_exchange(exchange)
     if interpreter['type'] == 'book' and interpreter['symbol'] == 'bond':
         max_share_price = interpreter['buy'][0][0]
 
-
-def harshita_bond_strategy():
-    penny.
-
-def neeraj_bond_strategy():
 
 
 def main():
@@ -68,15 +62,13 @@ def main():
     exchange = connect()
     write_to_exchange(exchange, {"type": "hello", "team": team_name.upper()})
     hello_from_exchange = read_from_exchange(exchange)
-
-    if strategy == 'bond':
-        simple_bond.bond_strategy(exchange)
-    elif strategy == 'penny':
-        neeraj_bond_strategy(exchange)
+    while True:
+        response_exchange = read_from_exchange(exchange)
+        if strategy == 'bond':
+            simple_bond.bond_strategy(response_exchange)
+        elif strategy == 'penny':
+            penny.bond_strategy(response_exchange)
     
-
-    write_to_exchange(exchange, {"type": "add", "order_id": 1, "symbol": "GOOG", "dir": "BUY", "price": 1000, "size": 20})
-    response_from_exchange = read_from_exchange(exchange)
     print("The exchange replied:", response_from_exchange, file=sys.stderr)
 
 if __name__ == "__main__":
