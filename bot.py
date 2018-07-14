@@ -62,14 +62,16 @@ def main():
     exchange = connect()
     write_to_exchange(exchange, {"type": "hello", "team": team_name.upper()})
     hello_from_exchange = read_from_exchange(exchange)
+    order_id = 0
     while True:
         response_exchange = read_from_exchange(exchange)
         if strategy == 'bond':
             simple_bond.bond_strategy(response_exchange)
         elif strategy == 'penny':
-            penny.bond_strategy(response_exchange)
+            penny.bond_strategy(response_exchange, team_name, order_id)
 
-    time.sleep(2)
+        order_id += 1
+        time.sleep(2)
 
 if __name__ == "__main__":
     main()
