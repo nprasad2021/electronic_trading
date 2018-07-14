@@ -25,7 +25,7 @@ class Strategy:
 		self.port=25000 + (self.test_exchange_index if self.test_mode else 0)
 		self.exchange_hostname = "test-exch-" + self.team_name if self.test_mode else self.prod_exchange_hostname
 		assert self.exchange_hostname == self.prod_exchange_hostname
-		assert False
+		#assert False
 		self.exchange = self.connect()
 		self.order_id = 0
 		self.map = {}
