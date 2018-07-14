@@ -5,6 +5,10 @@ import time
 
 class Penny(strategy.Strategy):
 
+	def __init__(self):
+		strategy.Strategy.__init__(self)
+		self.type_of_trade = 'BOND'
+
 	def trade(self):
 
 		while True:
@@ -21,18 +25,19 @@ class Penny(strategy.Strategy):
 			except:
 				return None
 
- 
-			self.order_id += 1
-			buy_request = {"type": "add", "order_id": self.order_id, "symbol": "BOND", "dir": "BUY", "price": max_buy_price, "size": 5}
-			self.write_to_exchange(buy_request)
-			#print(self.read_from_exchange())
+ 			for trade_item in self.trades:
+				
+				buy_request = {"type": "add", "order_id": self.order_id, "symbol": trade_item, "dir": "BUY", "price": max_buy_price, "size": 5}
+				self.write_to_exchange(buy_request)
 
-			self.order_id += 1
-			sell_request = {"type": "add", "order_id": self.order_id, "symbol": "BOND", "dir": "SELL", "price": min_sell_price, "size": 5}
-			self.write_to_exchange(sell_request)
-			#print(self.read_from_exchange())
+				sell_request = {"type": "add", "order_id": self.order_id, "symbol": trade_item, "dir": "SELL", "price": min_sell_price, "size": 5}
+				self.write_to_exchange(sell_request)
+
 
 		return None
+
+
+
 
 
 

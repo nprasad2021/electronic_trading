@@ -27,6 +27,7 @@ class Strategy:
 
 		self.exchange = self.connect()
 		self.order_id = 0
+		self.map = {}
 		self.initiate_trade()
 
 	def connect(self):
@@ -36,9 +37,12 @@ class Strategy:
 
 	def write_to_exchange(self, obj):
 
-		print('sending an order')
+		#print('sending an order')
 		json.dump(obj, self.exchange)
 		self.exchange.write("\n")
+		self.map[self.order_id] = obj
+		self.order_id += 1
+
 
 	def read_from_exchange(self):
 	    return json.loads(self.exchange.readline())
