@@ -26,6 +26,7 @@ class Strategy:
 
 		self.exchange = self.connect()
 		self.order_id = 0
+		self.initiate_trade()
 
 	def connect(self):
 	    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
