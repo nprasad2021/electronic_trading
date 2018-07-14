@@ -5,6 +5,7 @@ import strategy
 class Penny(strategy.Strategy):
 
 	def trade(self):
+
 		while True:
 			response_exchange = self.read_from_exchange()
 			self.penny_trade(response_exchange)
@@ -27,7 +28,7 @@ class Penny(strategy.Strategy):
 		    	print(self.read_from_exchange())
 		    
 		    except: 
-		    	continue
+		    	return
 
 
 
