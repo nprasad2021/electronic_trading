@@ -34,7 +34,7 @@ class Strategy:
 
 	def write_to_exchange(self, obj):
 	    json.dump(obj, self.exchange)
-	    exchange.write("\n")
+	    self.exchange.write("\n")
 
 	def read_from_exchange(self):
 	    return json.loads(self.exchange.readline())
