@@ -9,7 +9,7 @@ class Penny(strategy.Strategy):
 
 		while True:
 			response_exchange = self.read_from_exchange()
-			self.penny_trade(response)
+			self.penny_trade(response_exchange)
 
 	def penny_trade(self, exchange_response):
 
