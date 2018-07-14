@@ -11,6 +11,10 @@ import sys
 import socket
 import json
 
+import penny
+import simple_bond
+
+
 # ~~~~~============== CONFIGURATION  ==============~~~~~
 # replace REPLACEME with your team name!
 team_name="TEAMYELLOW"
@@ -46,11 +50,31 @@ def read_from_exchange(exchange):
 
 def interpret_exchange(json_file):
     
+def interpret_exchange(exchange):
+    interpreter = response_from_exchange(exchange)
+    if interpreter['type'] == 'book' and interpreter['symbol'] == 'bond':
+        max_share_price = interpreter['buy'][0][0]
+
+
+def harshita_bond_strategy():
+    penny.
+
+def neeraj_bond_strategy():
+
 
 def main():
+    strategy = sys.argv[1]
+
     exchange = connect()
     write_to_exchange(exchange, {"type": "hello", "team": team_name.upper()})
     hello_from_exchange = read_from_exchange(exchange)
+
+    if strategy == 'bond':
+        simple_bond.bond_strategy(exchange)
+    elif strategy == 'penny':
+        neeraj_bond_strategy(exchange)
+    
+
     write_to_exchange(exchange, {"type": "add", "order_id": 1, "symbol": "GOOG", "dir": "BUY", "price": 1000, "size": 20})
     response_from_exchange = read_from_exchange(exchange)
     print("The exchange replied:", response_from_exchange, file=sys.stderr)
