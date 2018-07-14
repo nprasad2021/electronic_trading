@@ -24,10 +24,10 @@ class Penny(strategy.Strategy):
 
  			for trade_item in self.trades:
 				
-				buy_request = {"type": "add", "order_id": self.order_id, "symbol": trade_item, "dir": "BUY", "price": max_buy_price, "size": 1000}
+				buy_request = {"type": "add", "order_id": self.order_id, "symbol": trade_item, "dir": "BUY", "price": max_buy_price, "size": 5}
 				self.write_to_exchange(buy_request)
 
-				sell_request = {"type": "add", "order_id": self.order_id, "symbol": trade_item, "dir": "SELL", "price": min_sell_price, "size": 1000}
+				sell_request = {"type": "add", "order_id": self.order_id, "symbol": trade_item, "dir": "SELL", "price": min_sell_price, "size": 5}
 				self.write_to_exchange(sell_request)
 
 
