@@ -1,6 +1,7 @@
 #### PENNY TRADING STRATEGY
 import random
 import strategy
+import time
 
 class Penny(strategy.Strategy):
 
@@ -9,6 +10,7 @@ class Penny(strategy.Strategy):
 		while True:
 			response_exchange = self.read_from_exchange()
 			self.penny_trade(response_exchange)
+			time.sleep(5)
 
 	def penny_trade(self, exchange_response):
 
