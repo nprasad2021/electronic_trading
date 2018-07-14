@@ -37,7 +37,7 @@ class Penny(strategy.Strategy):
 class BondPenny(Penny):
 
 	def __init__(self):
-
+    
 		Penny.__init__(self)
 		self.trades = ['BOND']
 

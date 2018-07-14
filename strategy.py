@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+ 
 from __future__ import print_function
 
 import sys
@@ -12,7 +14,9 @@ class Strategy:
 
 		# This variable dictates whether or not the bot is connecting to the prod
 		# or test exchange. Be careful with this switch!
+
 		self.test_mode = True
+
 
 		# This setting changes which test exchange is connected to.
 		# 0 is prod-like
@@ -24,7 +28,8 @@ class Strategy:
 
 		self.port=25000 + (self.test_exchange_index if self.test_mode else 0)
 		self.exchange_hostname = "test-exch-" + self.team_name if self.test_mode else self.prod_exchange_hostname
-
+		#assert self.exchange_hostname == self.prod_exchange_hostname
+		#assert False
 		self.exchange = self.connect()
 		self.order_id = 0
 		self.map = {}
