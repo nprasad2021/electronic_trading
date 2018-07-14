@@ -13,7 +13,7 @@ class Penny(strategy.Strategy):
 
 	def penny_trade(self, exchange_response):
 
-	    if exchange_response['type'] == 'book' and exchange_response['symbol'] == 'BOND':
+	    if exchange_response['type'] == 'book':
 	        max_buy_price = exchange_response['buy'][0][0]
 	        min_sell_price = exchange_response['sell'][0][0]
 
@@ -29,4 +29,5 @@ class Penny(strategy.Strategy):
 
 
 
+class Bond(Penny):
 
