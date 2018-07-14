@@ -8,7 +8,7 @@ import time
 class Strategy:
 	def __init__(self):
 
-		self.team_name="TEAMYELLOW"
+		self.team_name="teamyellow"
 
 		# This variable dictates whether or not the bot is connecting to the prod
 		# or test exchange. Be careful with this switch!
@@ -18,7 +18,8 @@ class Strategy:
 		# 0 is prod-like
 		# 1 is slower
 		# 2 is empty
-		self.test_exchange_index=1
+
+		self.test_exchange_index=0
 		self.prod_exchange_hostname="production"
 
 		self.port=25000 + (self.test_exchange_index if self.test_mode else 0)
@@ -26,6 +27,8 @@ class Strategy:
 
 		self.exchange = self.connect()
 		self.order_id = 0
+		self.map = {}
+		self.trades = ['AAPL', 'BABA', 'BABZ', 'BOND', 'GOOG', 'MSFT', 'XLK']
 		self.initiate_trade()
 
 	def connect(self):
@@ -34,8 +37,13 @@ class Strategy:
 	    return s.makefile('rw', 1)
 
 	def write_to_exchange(self, obj):
-	    json.dump(obj, self.exchange)
-	    self.exchange.write("\n")
+
+		#print('sending an order')
+		json.dump(obj, self.exchange)
+		self.exchange.write("\n")
+		self.map[self.order_id] = obj
+		self.order_id += 1
+
 
 	def read_from_exchange(self):
 	    return json.loads(self.exchange.readline())
