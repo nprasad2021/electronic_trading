@@ -14,9 +14,6 @@ def trade(exchange_response, team_name):
         request = {"type": "add", "order_id": N, "symbol": "SYM", "dir": "BUY", "price": N, "size": N}
     	write_to_exchange(exchange, {"type": "hello", "team": team_name.upper()})
 
-
-
-
 def main(response_exchange, team_name):
 
 	trade(response_to_exchange, team_name)
