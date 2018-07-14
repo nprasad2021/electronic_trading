@@ -20,12 +20,12 @@ class Penny(strategy.Strategy):
 	        self.order_id += 1
 	        buy_request = {"type": "add", "order_id": self.order_id, "symbol": "BOND", "dir": "BUY", "price": max_buy_price, "size": 5}
 	        self.write_to_exchange(buy_request)
-	        print(self.read_from_exchange(exchange))
+	        print(self.read_from_exchange())
 
 	        self.order_id += 1
 	        sell_request = {"type": "add", "order_id": self.order_id, "symbol": "BOND", "dir": "SELL", "price": min_sell_price, "size": 5}
 	    	self.write_to_exchange(sell_request)
-	    	print(self.read_from_exchange(exchange))
+	    	print(self.read_from_exchange())
 
 
 
