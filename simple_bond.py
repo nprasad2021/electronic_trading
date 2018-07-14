@@ -12,4 +12,3 @@ def bond_strategy(exchange_name, team_name, order_id):
 def main(response_to_exchange):
     trade(response_to_exchange, team_name, order_id)
 
-
