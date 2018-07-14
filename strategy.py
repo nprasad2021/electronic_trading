@@ -18,7 +18,7 @@ class Strategy:
 		# 0 is prod-like
 		# 1 is slower
 		# 2 is empty
-		self.test_exchange_index=1
+		self.test_exchange_index=0
 		self.prod_exchange_hostname="production"
 
 		self.port=25000 + (self.test_exchange_index if self.test_mode else 0)
