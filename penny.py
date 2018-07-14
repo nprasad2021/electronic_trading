@@ -26,7 +26,7 @@ class Penny(strategy.Strategy):
 		        sell_request = {"type": "add", "order_id": self.order_id, "symbol": "BOND", "dir": "SELL", "price": min_sell_price, "size": 5}
 		    	self.write_to_exchange(sell_request)
 		    	print(self.read_from_exchange())
-		    
+
 		    except: 
 		    	return
 
