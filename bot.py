@@ -44,15 +44,16 @@ def read_from_exchange(exchange):
 
 # ~~~~~============== MAIN LOOP ==============~~~~~
 
+def interpret_exchange(json_file):
+
+
 def main():
     exchange = connect()
     write_to_exchange(exchange, {"type": "hello", "team": team_name.upper()})
     hello_from_exchange = read_from_exchange(exchange)
-    # A common mistake people make is to call write_to_exchange() > 1
-    # time for every read_from_exchange() response.
-    # Since many write messages generate marketdata, this will cause an
-    # exponential explosion in pending messages. Please, don't do that!
-    print("The exchange replied:", hello_from_exchange, file=sys.stderr)
+    write_to_exchange(exchange, {"type": "add", "order_id": 1, "symbol": "GOOG", "dir": "BUY", "price": 1000, "size": 20})
+    response_from_exchange = read_from_exchange(exchange)
+    print("The exchange replied:", response_from_exchange, file=sys.stderr)
 
 if __name__ == "__main__":
     main()
