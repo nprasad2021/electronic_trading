@@ -10,6 +10,7 @@ from __future__ import print_function
 import sys
 import socket
 import json
+import time
 
 
 ### TRADING STRATEGIES
@@ -68,6 +69,8 @@ def main():
             simple_bond.bond_strategy(response_exchange)
         elif strategy == 'penny':
             penny.bond_strategy(response_exchange)
+            
+    time.sleep(2)
     
     print("The exchange replied:", response_from_exchange, file=sys.stderr)
 
