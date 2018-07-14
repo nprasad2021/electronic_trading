@@ -5,9 +5,6 @@ import time
 
 class Penny(strategy.Strategy):
 
-	def __init__(self):
-		strategy.Strategy.__init__(self)
-		self.type_of_trade = 'BOND'
 
 	def trade(self):
 
