@@ -56,7 +56,6 @@ def interpret_exchange(exchange):
         max_share_price = interpreter['buy'][0][0]
 
 
-
 def main():
     strategy = sys.argv[1]
 

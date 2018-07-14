@@ -30,5 +30,3 @@ class Penny(strategy.Strategy):
 
 
 
-
-
