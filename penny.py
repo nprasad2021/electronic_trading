@@ -28,7 +28,9 @@ class Penny(strategy.Strategy):
 		    	print(self.read_from_exchange())
 
 		    except: 
-		    	return
+		    	return None
+
+		return None
 
 
 
