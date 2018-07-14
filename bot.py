@@ -44,7 +44,7 @@ def read_from_exchange(exchange):
 
 # ~~~~~============== MAIN LOOP ==============~~~~~
 
-def interpret_exchange(json_file):
+#def interpret_exchange(json_file):
 
 
 def main():
