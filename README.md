@@ -1,4 +1,4 @@
 # Electronic Trading Competition
 
-
-random edit
+- Bond Trading Strategy
+- Penny Trading Strategy

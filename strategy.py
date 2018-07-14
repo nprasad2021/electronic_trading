@@ -8,7 +8,7 @@ import time
 class Strategy:
 	def __init__(self):
 
-		self.team_name="TEAMYELLOW"
+		self.team_name="teamyellow"
 
 		# This variable dictates whether or not the bot is connecting to the prod
 		# or test exchange. Be careful with this switch!
@@ -18,6 +18,7 @@ class Strategy:
 		# 0 is prod-like
 		# 1 is slower
 		# 2 is empty
+
 		self.test_exchange_index=0
 		self.prod_exchange_hostname="production"
 
