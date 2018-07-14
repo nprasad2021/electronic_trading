@@ -35,6 +35,7 @@ class Strategy:
 	    return s.makefile('rw', 1)
 
 	def write_to_exchange(self, obj):
+		print('sending an order')
 	    json.dump(obj, self.exchange)
 	    self.exchange.write("\n")
 
