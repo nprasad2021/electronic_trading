@@ -29,5 +29,4 @@ class Penny(strategy.Strategy):
 
 
 
-class Bond(Penny):
 
