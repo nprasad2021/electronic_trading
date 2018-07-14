@@ -28,6 +28,7 @@ class Strategy:
 		self.exchange = self.connect()
 		self.order_id = 0
 		self.map = {}
+		self.trades = ['AAPL', 'BABA', 'BABZ', 'BOND', 'GOOG', 'MSFT', 'XLK']
 		self.initiate_trade()
 
 	def connect(self):
