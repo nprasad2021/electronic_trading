@@ -28,7 +28,17 @@ class Arbitrage(strategy.Strategy):
 
 			if response_exchange['symbol'] in self.trading_options:
 				if response_exchange['symbol'] == 'BABA':
-					request = 
+					if self.num_stocks[0] < 10:
+						request = {"type": "add", "order_id": self.order_id, "symbol": 'BABA', "dir": "SELL", "price": self.fair_price + 10, "size": 20}
+						self.write_to_exchange(request)
+						self.num_stocks[0] += 1
+						
+				else:
+					request = {"type": "add", "order_id": self.order_id, "symbol": 'BABZ', "dir": "BUY", "price": self.fair_price - 10, "size": 20}
+					self.write_to_exchange(request)
+					self.num_stocks[1] += 1
+
+
 
 
 					
