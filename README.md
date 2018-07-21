@@ -1,5 +1,5 @@
 # Algorithmic Trading Challenge
-===============================
+
 
 Virtual environment with several stocks, including ETFs. 
 
